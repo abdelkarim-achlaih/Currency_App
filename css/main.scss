@@ -1,0 +1,121 @@
+/* Start Variables */
+
+$main: #675aff;
+$second: #4838ff;
+// $three: #e357ef;
+// $main-dark: #101928;
+// $second-dark: #152744;
+// $white-50: rgba(255, 255, 255, .5);
+// $duration: 0.4s;
+
+/* End Variables */
+/* Start Global Rules */
+body {
+	font-family: "Ubuntu", sans-serif;
+	background-color: $main;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* End Global Rules */
+/* Start Components */
+
+
+/* End Components */
+/* Start Header */
+
+/* End Header */
+/* Start Footer Section */
+
+/* End Footer Section */
+/* Start Converter */
+
+.converter {
+	width: 400px;
+	margin: auto;
+	position: relative;
+	background-color: white;
+	padding: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 5px;
+
+	&>* {
+		margin-bottom: 50px;
+	}
+
+	h3 {
+		font-weight: bold;
+		text-align: center;
+		font-size: 25px;
+	}
+
+	label {
+		margin-bottom: 10px;
+		display: block;
+	}
+
+	input {
+		display: block;
+		border: 1px solid #777;
+		background-color: white;
+		padding: 10px 20px;
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	input:focus {
+		border-color: $main;
+		outline: none;
+	}
+
+	.settings {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.settings .symbol svg {
+		font-size: 30px;
+	}
+
+	.rate {
+		margin-top: 15px;
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+	}
+
+	button {
+		background-color: $main;
+		color: white;
+		padding: 20px;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+		width: 100%;
+		cursor: pointer;
+		user-select: none;
+		transition: 0.3s;
+	}
+
+	button:hover {
+		background-color: $second;
+	}
+
+	.result {
+		border: 1px solid $main;
+		padding: 20px;
+		border-radius: 5px;
+		width: 100%;
+		margin-bottom: 10px !important;
+		text-align: center;
+	}
+}
+
+
+/* End Converter */

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/all.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<title>Currency App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+	<div class="converter">
+		<h3>Currency Converter</h3>
+		<form action="">
+			<label for="ammount">Enter Ammount</label>
+			<input type="text" placeholder="Ammount" id="ammount">
+			<div class="settings">
+				<div class="from">
+					<label for="from">From</label>
+					<select name="" id="from">
+						<option value="">USD</option>
+						<option value="">EUR</option>
+					</select>
+				</div>
+				<div class="symbol">
+					<i class="fa-solid fa-repeat"></i>
+				</div>
+				<div class="to">
+					<label for="to">To</label>
+					<select name="" id="to">
+						<option value="">USD</option>
+						<option value="">EUR</option>
+					</select>
+				</div>
+			</div>
+			<div class="rate">
+				<div class="to"><span>1</span><span> Eu</span></div>
+				<div class="equal">=</div>
+				<div class="to"><span>11.232565</span><span> MAD</span></div>
+			</div>
+		</form>
+		<button>Get Exchange Rate</button>
+		<div class="result fs-3">
+			3332
+		</div>
+	</div>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/all.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
