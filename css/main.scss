@@ -193,6 +193,20 @@ body {
 	animation: reorderAnimationLeft .7s ease-in-out reverse;
 }
 
+.rotate {
+	animation: reorderRotation .7s ease-in-out reverse;
+}
+
+@keyframes reorderRotation {
+	from {
+		transform: rotate(0)
+	}
+
+	to {
+		transform: rotate(-360deg)
+	}
+}
+
 @keyframes reorderAnimationRight {
 	from {
 		transform: translateX(0);

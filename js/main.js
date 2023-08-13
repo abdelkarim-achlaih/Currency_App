@@ -103,6 +103,10 @@ switcher.onclick = function () {
 
 	//Switch Settings Animation
 
+	switcher.classList.add("rotate");
+	setTimeout(() => {
+		switcher.classList.remove("rotate");
+	}, 700);
 	settingsFrom.classList.add("animate-right");
 	setTimeout(() => {
 		settingsFrom.classList.remove("animate-right");
