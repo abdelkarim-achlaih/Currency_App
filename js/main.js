@@ -13,7 +13,9 @@ let result = document.querySelector(".converter .result");
 async function createOptions() {
 	// Fetch Data From API
 
-	let data = await fetch("/js/data.json");
+	let data = await fetch(
+		"https://api.currencyfreaks.com/v2.0/rates/latest?apikey=7cc0980b4f584b92b78cc967926526a9"
+	);
 	let allData = await data.json();
 	let ratesObject = allData.rates;
 
@@ -21,7 +23,7 @@ async function createOptions() {
 	codes.sort();
 
 	// Create Options;
-
+	removeLoader();
 	for (let i = 0; i < codes.length; i++) {
 		let option = document.createElement("option");
 		option.value = codes[i];
@@ -77,16 +79,33 @@ async function createOptions() {
 	return ratesObject;
 }
 
-function getImgLink(code, country_list) {
-	return `https://flagsapi.com/${country_list[code]}/flat/32.png`;
+function loader() {
+	let ele = document.createElement("div");
+	ele.classList.add("lds-ring");
+	for (let i = 0; i < 3; i++) {
+		let div = document.createElement("div");
+		ele.appendChild(div);
+	}
+	let tmp = [];
+	for (let i = 0; i < 4; i++) {
+		tmp[i] = ele.cloneNode(true);
+	}
+
+	settingsFrom.prepend(tmp[0]);
+	settingsTo.prepend(tmp[1]);
+	rateFrom.prepend(tmp[2]);
+	rateTo.prepend(tmp[3]);
+}
+function removeLoader() {
+	settingsFrom.firstElementChild.remove();
+	settingsTo.firstElementChild.remove();
+	rateFrom.firstElementChild.remove();
+	rateTo.firstElementChild.remove();
 }
 
-function animate(node, className, time) {
-	node.classList.add(className);
-	setTimeout(() => {
-		node.classList.remove(className);
-	}, time);
-}
+loader();
+
+let ratesObject = await createOptions();
 
 btn.onclick = function () {
 	result.innerHTML = input.value * settings.dataset.rate;
@@ -135,8 +154,6 @@ switcher.onclick = function () {
 	settings.dataset.rate = calculateRate(ratesObject);
 };
 
-let ratesObject = await createOptions();
-
 function calculateRate(ratesObject) {
 	let down =
 		ratesObject[
@@ -150,4 +167,15 @@ function calculateRate(ratesObject) {
 				.value
 		];
 	return Math.round((up / down) * 10000) / 10000;
+}
+
+function getImgLink(code, country_list) {
+	return `https://flagsapi.com/${country_list[code]}/flat/32.png`;
+}
+
+function animate(node, className, time) {
+	node.classList.add(className);
+	setTimeout(() => {
+		node.classList.remove(className);
+	}, time);
 }
