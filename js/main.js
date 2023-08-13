@@ -1,16 +1,16 @@
-let from = document.querySelector(".converter .settings .from select");
-let to = document.querySelector(".converter .settings .to select");
+import { country_list } from "../js/countries.js";
+let input = document.querySelector(".converter input");
+let settings = document.querySelector(".converter .settings");
+let settingsFrom = document.querySelector(".converter .settings .from .drop");
+let settingsTo = document.querySelector(".converter .settings .to .drop");
+let switcher = document.querySelector(".converter .settings .symbol");
 let rateFrom = document.querySelector(".converter .rate .from");
 let rateTo = document.querySelector(".converter .rate .to");
-let input = document.querySelector(".converter input");
 let btn = document.querySelector(".converter .exchange");
 let result = document.querySelector(".converter .result");
-let switcher = document.querySelector(".converter .settings .symbol");
 
 async function createOptions() {
-	let data = await fetch(
-		"https://api.currencyfreaks.com/v2.0/rates/latest?apikey=7cc0980b4f584b92b78cc967926526a9"
-	);
+	let data = await fetch("/js/data.json");
 	let allData = await data.json();
 	let ratesObject = allData.rates;
 
@@ -22,56 +22,127 @@ async function createOptions() {
 		option.value = codes[i];
 		option.innerHTML = codes[i];
 		let toOption = option.cloneNode(true);
-		from.append(option);
-		to.append(toOption);
+		settingsFrom.lastElementChild.append(option);
+		settingsTo.lastElementChild.append(toOption);
 	}
 
-	//Initialising
+	//Initialising Settings
 
-	from.value = "USD";
-	to.value = "MAD";
-	rateFrom.firstElementChild.innerHTML = Math.round(ratesObject["USD"]);
-	rateFrom.lastElementChild.innerHTML = "USD";
-	rateTo.firstElementChild.innerHTML =
-		Math.round(ratesObject["MAD"] * 10000) / 10000;
-	rateTo.lastElementChild.innerHTML = "MAD";
+	let codeFrom = "USD";
+	let codeTo = "MAD";
 
-	//Change on events
+	settingsFrom.firstElementChild.src = getImgLink(codeFrom, country_list);
+	settingsFrom.lastElementChild.value = codeFrom;
+	settingsTo.firstElementChild.src = getImgLink(codeTo, country_list);
+	settingsTo.lastElementChild.value = codeTo;
 
-	from.addEventListener("change", function (e) {
+	// settingsFrom.dataset.pos = "left";
+	// settingsTo.dataset.pos = "right";
+
+	//Initialising Rates
+
+	rateFrom.firstElementChild.innerHTML = Math.round(ratesObject[codeFrom]);
+	rateFrom.lastElementChild.innerHTML = codeFrom;
+
+	let rate = Math.round(ratesObject[codeTo] * 10000) / 10000;
+
+	rateTo.firstElementChild.innerHTML = rate;
+	rateTo.lastElementChild.innerHTML = codeTo;
+
+	//Initialising Settings rate
+
+	settings.dataset.rate = calculateRate(ratesObject);
+
+	//Change Rates simulation based on the change in settings
+
+	settingsFrom.lastElementChild.addEventListener("change", function (e) {
+		rateTo.firstElementChild.innerHTML = calculateRate(ratesObject);
 		rateFrom.lastElementChild.innerHTML = e.target.value;
-		rateTo.firstElementChild.innerHTML =
-			Math.round(
-				(ratesObject[to.value] / ratesObject[e.target.value]) * 10000
-			) / 10000;
+		settingsFrom.firstElementChild.src = getImgLink(
+			e.target.value,
+			country_list
+		);
+		settings.dataset.rate = calculateRate(ratesObject);
 	});
-	to.addEventListener("change", function (e) {
-		rateTo.firstElementChild.innerHTML =
-			Math.round(
-				(ratesObject[e.target.value] / ratesObject[from.value]) * 10000
-			) / 10000;
+
+	settingsTo.lastElementChild.addEventListener("change", function (e) {
+		rateTo.firstElementChild.innerHTML = calculateRate(ratesObject);
 		rateTo.lastElementChild.innerHTML = e.target.value;
+		settingsTo.firstElementChild.src = getImgLink(e.target.value, country_list);
+		settings.dataset.rate = calculateRate(ratesObject);
 	});
 }
 
 createOptions();
 
+function calculateRate(ratesObject) {
+	let down =
+		ratesObject[
+			document.querySelector(
+				".converter .settings div:first-child .drop select"
+			).value
+		];
+	let up =
+		ratesObject[
+			document.querySelector(".converter .settings div:last-child .drop select")
+				.value
+		];
+	return Math.round((up / down) * 10000) / 10000;
+}
+
+function getImgLink(code, country_list) {
+	return `https://flagsapi.com/${country_list[code]}/flat/32.png`;
+}
+
 btn.onclick = function () {
-	result.innerHTML = input.value * rateTo.firstElementChild.innerHTML;
+	result.innerHTML = input.value * settings.dataset.rate;
 };
 
 switcher.onclick = function () {
 	//Switch Settings
-	let tmp = from.parentNode.parentNode.dataset.tmp;
+
+	settings.firstElementChild.classList.add("animate-right");
+	setTimeout(() => {
+		settings.firstElementChild.classList.remove("animate-right");
+	}, 700);
+	settings.lastElementChild.classList.add("animate-left");
+	setTimeout(() => {
+		settings.lastElementChild.classList.remove("animate-left");
+	}, 700);
+	let tmp = settings.dataset.tmp;
 	if (tmp === "false") {
-		from.parentNode.style.order = 3;
-		to.parentNode.style.order = 1;
-		from.parentNode.parentNode.dataset.tmp = "true";
+		settings.firstElementChild.firstElementChild.innerHTML = "To";
+		settings.lastElementChild.firstElementChild.innerHTML = "From";
+		settingsFrom.style.order = 3;
+		settingsTo.style.order = 1;
+		settings.dataset.tmp = "true";
 	} else {
-		from.parentNode.style.order = 1;
-		to.parentNode.style.order = 3;
-		from.parentNode.parentNode.dataset.tmp = "false";
+		settings.firstElementChild.firstElementChild.innerHTML = "From";
+		settings.lastElementChild.firstElementChild.innerHTML = "To";
+		settingsFrom.style.order = 1;
+		settingsTo.style.order = 3;
+		settings.dataset.tmp = "false";
 	}
 
 	//Switch Rate
+
+	// let tmp2 = rateFrom.parentNode.dataset.tmp;
+	// if (tmp2 === "false") {
+	// 	rateFrom.style.order = 3;
+	// 	rateTo.style.order = 1;
+	// 	rateFrom.parentNode.dataset.tmp = "true";
+	// } else {
+	// 	rateFrom.style.order = 1;
+	// 	rateTo.style.order = 3;
+	// 	rateFrom.parentNode.dataset.tmp = "false";
+	// }
+
+	// if (rateFrom.firstElementChild.innerHTML !== 1) {
+	// 	rateFrom.firstElementChild.innerHTML =
+	// 		Math.round((1 / rateTo.firstElementChild.innerHTML) * 10000) / 10000;
+	// 	rateTo.firstElementChild.innerHTML = 1;
+
+	// 	switcher.dataset.x = rateFrom.firstElementChild.innerHTML;
+	// }
 };
+function switchRates() {}

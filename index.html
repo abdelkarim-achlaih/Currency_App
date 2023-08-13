@@ -12,7 +12,7 @@
 	<title>Currency App</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap"
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
 		rel="stylesheet">
 </head>
 
@@ -23,21 +23,27 @@
 			<label for="ammount">Enter Ammount</label>
 			<input type="text" placeholder="Ammount" id="ammount">
 			<div class="settings" data-tmp="false">
-				<div class="from text-center">
+				<div class="from">
 					<label for="from">From</label>
-					<select name="" id="from">
-					</select>
+					<div class="drop text-center">
+						<img src="">
+						<select name="" id="from">
+						</select>
+					</div>
 				</div>
 				<div class="symbol text-center">
 					<i class="fa-solid fa-repeat"></i>
 				</div>
-				<div class="to text-center">
+				<div class="to">
 					<label for="to">To</label>
-					<select name="" id="to">
-					</select>
+					<div class="drop text-center">
+						<img src="">
+						<select name="" id="to">
+						</select>
+					</div>
 				</div>
 			</div>
-			<div class="rate">
+			<div class="rate" data-tmp="false">
 				<div class="from"><span></span><span> </span><span></span></div>
 				<div class="equal">=</div>
 				<div class="to"><span></span><span> </span><span></span></div>
@@ -50,7 +56,8 @@
 	</div>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/all.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/countries.js" type="module"></script>
+	<script src="js/main.js" type="module"></script>
 </body>
 
 </html>
