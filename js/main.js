@@ -5,6 +5,7 @@ let rateTo = document.querySelector(".converter .rate .to");
 let input = document.querySelector(".converter input");
 let btn = document.querySelector(".converter .exchange");
 let result = document.querySelector(".converter .result");
+let switcher = document.querySelector(".converter .settings .symbol");
 
 async function createOptions() {
 	let data = await fetch(
@@ -57,4 +58,20 @@ createOptions();
 
 btn.onclick = function () {
 	result.innerHTML = input.value * rateTo.firstElementChild.innerHTML;
+};
+
+switcher.onclick = function () {
+	//Switch Settings
+	let tmp = from.parentNode.parentNode.dataset.tmp;
+	if (tmp === "false") {
+		from.parentNode.style.order = 3;
+		to.parentNode.style.order = 1;
+		from.parentNode.parentNode.dataset.tmp = "true";
+	} else {
+		from.parentNode.style.order = 1;
+		to.parentNode.style.order = 3;
+		from.parentNode.parentNode.dataset.tmp = "false";
+	}
+
+	//Switch Rate
 };

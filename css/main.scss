@@ -78,18 +78,38 @@ body {
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-	}
 
-	.settings .symbol svg {
-		font-size: 30px;
-		cursor: pointer;
-		color: $main;
-		transition: $duration;
+		&>div {
+			user-select: none;
+		}
 
-		&:hover {
-			color: $second;
+		.from {
+			transition: $duration !important;
+			order: 1;
+		}
+
+		.to {
+			transition: $duration !important;
+			order: 3;
+		}
+
+		.symbol {
+
+			order: 2;
+
+			svg {
+				font-size: 30px;
+				cursor: pointer;
+				color: $main;
+				transition: $duration;
+
+				&:hover {
+					color: $second;
+				}
+			}
 		}
 	}
+
 
 	select {
 		width: 75px;

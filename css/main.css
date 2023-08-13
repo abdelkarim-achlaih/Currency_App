@@ -59,6 +59,22 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+.converter .settings > div {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.converter .settings .from {
+  transition: 0.4s !important;
+  order: 1;
+}
+.converter .settings .to {
+  transition: 0.4s !important;
+  order: 3;
+}
+.converter .settings .symbol {
+  order: 2;
+}
 .converter .settings .symbol svg {
   font-size: 30px;
   cursor: pointer;
