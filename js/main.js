@@ -101,6 +101,8 @@ btn.onclick = function () {
 switcher.onclick = function () {
 	//Switch Settings
 
+	//Switch Settings Animation
+
 	settingsFrom.classList.add("animate-right");
 	setTimeout(() => {
 		settingsFrom.classList.remove("animate-right");
@@ -109,6 +111,9 @@ switcher.onclick = function () {
 	setTimeout(() => {
 		settingsTo.classList.remove("animate-left");
 	}, 700);
+
+	//Switch Settings Logic
+
 	let tmp = settingsFrom.lastElementChild.value;
 	settingsFrom.lastElementChild.value = settingsTo.lastElementChild.value;
 	settingsTo.lastElementChild.value = tmp;

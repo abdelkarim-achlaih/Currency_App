@@ -86,16 +86,6 @@ body {
 			flex: 1;
 		}
 
-		.from {
-			transition: $duration !important;
-			order: 1;
-		}
-
-		.to {
-			transition: $duration !important;
-			order: 3;
-		}
-
 		.drop {
 			border: 1px solid black;
 			border-radius: 5px;
@@ -124,8 +114,6 @@ body {
 
 
 		.symbol {
-
-			order: 2;
 
 			svg {
 				font-size: 30px;
@@ -211,7 +199,7 @@ body {
 	}
 
 	to {
-		transform: translateX(60px);
+		transform: translateX(100%);
 	}
 }
 
@@ -221,7 +209,7 @@ body {
 	}
 
 	to {
-		transform: translateX(-60px);
+		transform: translateX(-100%);
 	}
 }
 

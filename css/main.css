@@ -67,14 +67,6 @@ body {
           user-select: none;
   flex: 1;
 }
-.converter .settings .from {
-  transition: 0.4s !important;
-  order: 1;
-}
-.converter .settings .to {
-  transition: 0.4s !important;
-  order: 3;
-}
 .converter .settings .drop {
   border: 1px solid black;
   border-radius: 5px;
@@ -96,9 +88,6 @@ body {
 .converter .settings .drop select:focus-visible {
   border: none;
   outline: none;
-}
-.converter .settings .symbol {
-  order: 2;
 }
 .converter .settings .symbol svg {
   font-size: 30px;
@@ -171,7 +160,7 @@ body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(60px);
+    transform: translateX(100%);
   }
 }
 @keyframes reorderAnimationLeft {
@@ -179,7 +168,7 @@ body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-60px);
+    transform: translateX(-100%);
   }
 }
 /* End Converter *//*# sourceMappingURL=main.css.map */
