@@ -101,28 +101,25 @@ btn.onclick = function () {
 switcher.onclick = function () {
 	//Switch Settings
 
-	settings.firstElementChild.classList.add("animate-right");
+	settingsFrom.classList.add("animate-right");
 	setTimeout(() => {
-		settings.firstElementChild.classList.remove("animate-right");
+		settingsFrom.classList.remove("animate-right");
 	}, 700);
-	settings.lastElementChild.classList.add("animate-left");
+	settingsTo.classList.add("animate-left");
 	setTimeout(() => {
-		settings.lastElementChild.classList.remove("animate-left");
+		settingsTo.classList.remove("animate-left");
 	}, 700);
-	let tmp = settings.dataset.tmp;
-	if (tmp === "false") {
-		settings.firstElementChild.firstElementChild.innerHTML = "To";
-		settings.lastElementChild.firstElementChild.innerHTML = "From";
-		settingsFrom.style.order = 3;
-		settingsTo.style.order = 1;
-		settings.dataset.tmp = "true";
-	} else {
-		settings.firstElementChild.firstElementChild.innerHTML = "From";
-		settings.lastElementChild.firstElementChild.innerHTML = "To";
-		settingsFrom.style.order = 1;
-		settingsTo.style.order = 3;
-		settings.dataset.tmp = "false";
-	}
+	let tmp = settingsFrom.lastElementChild.value;
+	settingsFrom.lastElementChild.value = settingsTo.lastElementChild.value;
+	settingsTo.lastElementChild.value = tmp;
+	settingsFrom.firstElementChild.src = getImgLink(
+		settingsFrom.lastElementChild.value,
+		country_list
+	);
+	settingsTo.firstElementChild.src = getImgLink(
+		settingsTo.lastElementChild.value,
+		country_list
+	);
 
 	//Switch Rate
 
