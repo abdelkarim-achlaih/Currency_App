@@ -57,15 +57,28 @@ body {
 .converter .settings {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 .converter .settings .symbol svg {
   font-size: 30px;
+  cursor: pointer;
+  color: #675aff;
+  transition: 0.4s;
+}
+.converter .settings .symbol svg:hover {
+  color: #4838ff;
+}
+.converter select {
+  width: 75px;
 }
 .converter .rate {
   margin-top: 15px;
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+.converter .rate div span:last-of-type {
+  font-weight: bold;
 }
 .converter button {
   background-color: #675aff;
@@ -79,7 +92,7 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 .converter button:hover {
   background-color: #4838ff;
