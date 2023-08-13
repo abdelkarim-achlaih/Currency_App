@@ -1,4 +1,5 @@
 import { country_list } from "../js/countries.js";
+
 let input = document.querySelector(".converter input");
 let settings = document.querySelector(".converter .settings");
 let settingsFrom = document.querySelector(".converter .settings .from .drop");
@@ -10,12 +11,16 @@ let btn = document.querySelector(".converter .exchange");
 let result = document.querySelector(".converter .result");
 
 async function createOptions() {
+	// Fetch Data From API
+
 	let data = await fetch("/js/data.json");
 	let allData = await data.json();
 	let ratesObject = allData.rates;
 
 	let codes = Object.keys(ratesObject);
 	codes.sort();
+
+	// Create Options;
 
 	for (let i = 0; i < codes.length; i++) {
 		let option = document.createElement("option");
@@ -36,9 +41,6 @@ async function createOptions() {
 	settingsTo.firstElementChild.src = getImgLink(codeTo, country_list);
 	settingsTo.lastElementChild.value = codeTo;
 
-	// settingsFrom.dataset.pos = "left";
-	// settingsTo.dataset.pos = "right";
-
 	//Initialising Rates
 
 	rateFrom.firstElementChild.innerHTML = Math.round(ratesObject[codeFrom]);
@@ -49,7 +51,7 @@ async function createOptions() {
 	rateTo.firstElementChild.innerHTML = rate;
 	rateTo.lastElementChild.innerHTML = codeTo;
 
-	//Initialising Settings rate
+	//Initialising Settings Final rate
 
 	settings.dataset.rate = calculateRate(ratesObject);
 
@@ -71,9 +73,11 @@ async function createOptions() {
 		settingsTo.firstElementChild.src = getImgLink(e.target.value, country_list);
 		settings.dataset.rate = calculateRate(ratesObject);
 	});
+
+	return ratesObject;
 }
 
-createOptions();
+let ratesObject = createOptions();
 
 function calculateRate(ratesObject) {
 	let down =
@@ -94,6 +98,13 @@ function getImgLink(code, country_list) {
 	return `https://flagsapi.com/${country_list[code]}/flat/32.png`;
 }
 
+function animate(node, className, time) {
+	node.classList.add(className);
+	setTimeout(() => {
+		node.classList.remove(className);
+	}, time);
+}
+
 btn.onclick = function () {
 	result.innerHTML = input.value * settings.dataset.rate;
 };
@@ -103,52 +114,45 @@ switcher.onclick = function () {
 
 	//Switch Settings Animation
 
-	switcher.classList.add("rotate");
-	setTimeout(() => {
-		switcher.classList.remove("rotate");
-	}, 700);
-	settingsFrom.classList.add("animate-right");
-	setTimeout(() => {
-		settingsFrom.classList.remove("animate-right");
-	}, 700);
-	settingsTo.classList.add("animate-left");
-	setTimeout(() => {
-		settingsTo.classList.remove("animate-left");
-	}, 700);
+	animate(switcher, "rotate", 700);
+	animate(settingsFrom, "animate-right", 700);
+	animate(settingsTo, "animate-left", 700);
 
 	//Switch Settings Logic
 
 	let tmp = settingsFrom.lastElementChild.value;
 	settingsFrom.lastElementChild.value = settingsTo.lastElementChild.value;
 	settingsTo.lastElementChild.value = tmp;
+
 	settingsFrom.firstElementChild.src = getImgLink(
 		settingsFrom.lastElementChild.value,
 		country_list
 	);
+
 	settingsTo.firstElementChild.src = getImgLink(
 		settingsTo.lastElementChild.value,
 		country_list
 	);
 
-	//Switch Rate
+	// Switch Rate
 
-	// let tmp2 = rateFrom.parentNode.dataset.tmp;
-	// if (tmp2 === "false") {
-	// 	rateFrom.style.order = 3;
-	// 	rateTo.style.order = 1;
-	// 	rateFrom.parentNode.dataset.tmp = "true";
-	// } else {
-	// 	rateFrom.style.order = 1;
-	// 	rateTo.style.order = 3;
-	// 	rateFrom.parentNode.dataset.tmp = "false";
-	// }
+	let tmp2 = rateFrom.parentNode.dataset.tmp;
+	if (tmp2 === "false") {
+		rateFrom.style.order = 3;
+		rateTo.style.order = 1;
+		rateFrom.parentNode.dataset.tmp = "true";
+	} else {
+		rateFrom.style.order = 1;
+		rateTo.style.order = 3;
+		rateFrom.parentNode.dataset.tmp = "false";
+	}
 
-	// if (rateFrom.firstElementChild.innerHTML !== 1) {
-	// 	rateFrom.firstElementChild.innerHTML =
-	// 		Math.round((1 / rateTo.firstElementChild.innerHTML) * 10000) / 10000;
-	// 	rateTo.firstElementChild.innerHTML = 1;
+	if (rateFrom.firstElementChild.innerHTML !== 1) {
+		rateFrom.firstElementChild.innerHTML =
+			Math.round((1 / rateTo.firstElementChild.innerHTML) * 10000) / 10000;
+		rateTo.firstElementChild.innerHTML = 1;
 
-	// 	switcher.dataset.x = rateFrom.firstElementChild.innerHTML;
-	// }
+		switcher.dataset.x = rateFrom.firstElementChild.innerHTML;
+	}
 };
 function switchRates() {}
