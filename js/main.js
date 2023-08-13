@@ -41,7 +41,7 @@ async function createOptions() {
 	settingsTo.firstElementChild.src = getImgLink(codeTo, country_list);
 	settingsTo.lastElementChild.value = codeTo;
 
-	//Initialising Rates
+	//Initialising Rates Simulation
 
 	rateFrom.firstElementChild.innerHTML = Math.round(ratesObject[codeFrom]);
 	rateFrom.lastElementChild.innerHTML = codeFrom;
@@ -75,23 +75,6 @@ async function createOptions() {
 	});
 
 	return ratesObject;
-}
-
-let ratesObject = createOptions();
-
-function calculateRate(ratesObject) {
-	let down =
-		ratesObject[
-			document.querySelector(
-				".converter .settings div:first-child .drop select"
-			).value
-		];
-	let up =
-		ratesObject[
-			document.querySelector(".converter .settings div:last-child .drop select")
-				.value
-		];
-	return Math.round((up / down) * 10000) / 10000;
 }
 
 function getImgLink(code, country_list) {
@@ -134,25 +117,37 @@ switcher.onclick = function () {
 		country_list
 	);
 
-	// Switch Rate
+	// Switch Rates Simulation
 
-	let tmp2 = rateFrom.parentNode.dataset.tmp;
-	if (tmp2 === "false") {
-		rateFrom.style.order = 3;
-		rateTo.style.order = 1;
-		rateFrom.parentNode.dataset.tmp = "true";
-	} else {
-		rateFrom.style.order = 1;
-		rateTo.style.order = 3;
-		rateFrom.parentNode.dataset.tmp = "false";
-	}
+	//Switch Settings Animation
 
-	if (rateFrom.firstElementChild.innerHTML !== 1) {
-		rateFrom.firstElementChild.innerHTML =
-			Math.round((1 / rateTo.firstElementChild.innerHTML) * 10000) / 10000;
-		rateTo.firstElementChild.innerHTML = 1;
+	animate(rateFrom, "animate-right", 700);
+	animate(rateTo, "animate-left", 700);
 
-		switcher.dataset.x = rateFrom.firstElementChild.innerHTML;
-	}
+	//Switch Settings Logic
+
+	let tmpo = rateFrom.lastElementChild.innerHTML;
+	rateFrom.lastElementChild.innerHTML = rateTo.lastElementChild.innerHTML;
+	rateTo.lastElementChild.innerHTML = tmpo;
+
+	rateTo.firstElementChild.innerHTML = calculateRate(ratesObject);
+
+	settings.dataset.rate = calculateRate(ratesObject);
 };
-function switchRates() {}
+
+let ratesObject = await createOptions();
+
+function calculateRate(ratesObject) {
+	let down =
+		ratesObject[
+			document.querySelector(
+				".converter .settings div:first-child .drop select"
+			).value
+		];
+	let up =
+		ratesObject[
+			document.querySelector(".converter .settings div:last-child .drop select")
+				.value
+		];
+	return Math.round((up / down) * 10000) / 10000;
+}
