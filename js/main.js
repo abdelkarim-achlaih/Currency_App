@@ -22,9 +22,9 @@ let elements = [
 async function createOptions() {
 	// Fetch Data From API
 
-	// let url =
-	// 	"https://api.currencyfreaks.com/v2.0/rates/latest?apikey=7cc0980b4f584b92b78cc967926526a9";
-	let url = "../js/data.json";
+	let url =
+		"https://api.currencyfreaks.com/v2.0/rates/latest?apikey=7cc0980b4f584b92b78cc967926526a9";
+	// let url = "../js/data.json";
 	let data = await fetch(url);
 	let allData = await data.json();
 	let ratesObject = allData.rates;
