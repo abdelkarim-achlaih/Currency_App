@@ -7,9 +7,18 @@ let settingsTo = document.querySelector(".converter .settings .to .drop");
 let switcher = document.querySelector(".converter .settings .symbol");
 let rateFrom = document.querySelector(".converter .rate .from");
 let rateTo = document.querySelector(".converter .rate .to");
+let outlineFrom = document.querySelector(".outline .from");
+let outlineTo = document.querySelector(".outline .to");
 let btn = document.querySelector(".converter .exchange");
 let result = document.querySelector(".converter .result");
-
+let elements = [
+	settingsFrom,
+	settingsTo,
+	rateFrom,
+	rateTo,
+	outlineFrom,
+	outlineTo,
+];
 async function createOptions() {
 	// Fetch Data From API
 
@@ -23,8 +32,10 @@ async function createOptions() {
 	let codes = Object.keys(ratesObject);
 	codes.sort();
 
-	// Create Options;
 	removeLoader();
+
+	// Create Options;
+
 	for (let i = 0; i < codes.length; i++) {
 		let option = document.createElement("option");
 		option.value = codes[i];
@@ -53,6 +64,14 @@ async function createOptions() {
 
 	rateTo.firstElementChild.innerHTML = rate;
 	rateTo.lastElementChild.innerHTML = codeTo;
+
+	//Initialising Outline Simulation
+
+	outlineFrom.firstElementChild.innerHTML = Math.round(ratesObject[codeFrom]);
+	outlineFrom.lastElementChild.innerHTML = codeFrom;
+
+	outlineTo.firstElementChild.innerHTML = rate;
+	outlineTo.lastElementChild.innerHTML = codeTo;
 
 	//Initialising Settings Final rate
 
@@ -88,20 +107,22 @@ function loader() {
 		ele.appendChild(div);
 	}
 	let tmp = [];
-	for (let i = 0; i < 4; i++) {
+	for (let i = 0; i < 6; i++) {
 		tmp[i] = ele.cloneNode(true);
 	}
-
-	settingsFrom.prepend(tmp[0]);
-	settingsTo.prepend(tmp[1]);
-	rateFrom.prepend(tmp[2]);
-	rateTo.prepend(tmp[3]);
+	let x = 0;
+	elements.forEach((ele) => {
+		ele.prepend(tmp[x]);
+		x++;
+	});
 }
+
 function removeLoader() {
-	settingsFrom.firstElementChild.remove();
-	settingsTo.firstElementChild.remove();
-	rateFrom.firstElementChild.remove();
-	rateTo.firstElementChild.remove();
+	let x = 0;
+	elements.forEach((ele) => {
+		ele.firstElementChild.remove();
+		x++;
+	});
 }
 
 loader();
