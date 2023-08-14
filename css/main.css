@@ -3,28 +3,127 @@
 /* Start Global Rules */
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #675aff;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 /* End Global Rules */
 /* Start Components */
 /* End Components */
 /* Start Header */
+header {
+  min-width: 72px;
+}
+header .navbar-toggler {
+  border-color: white;
+  color: white;
+}
+header .navbar-toggler:focus {
+  box-shadow: none;
+  border-color: #7b2049;
+}
+header .navbar-brand svg {
+  color: white;
+  font-size: 30px;
+}
+header .navbar-brand svg:hover {
+  color: #f73a99;
+}
+header .nav-link {
+  color: white;
+  text-transform: capitalize;
+}
+header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
+  color: #f73a99 !important;
+}
+
 /* End Header */
+/* Start Land */
+.hero {
+  position: relative;
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  padding: 0;
+}
+.overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(54, 27, 130, 0.9098039216) 50%, rgba(20, 21, 114, 0.5803921569) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 100;
+}
+
+.land {
+  height: calc(100vh - 72px);
+}
+.land .content p:first-child {
+  color: #f73a99;
+}
+.land .content h1 {
+  font-size: 4rem;
+}
+.land .img-holder {
+  width: 60%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  overflow: hidden;
+}
+.land .img-holder img {
+  max-width: 100%;
+}
+.land .img-holder p {
+  border-bottom: 1px solid #777;
+}
+.land .img-holder .outline {
+  color: #7b2049;
+}
+
+@media (max-width: 991px) {
+  header {
+    margin-bottom: 50px;
+  }
+  .land {
+    height: auto;
+  }
+  .land .img-holder {
+    width: 100%;
+  }
+  .overlay {
+    height: 100%;
+  }
+}
+/* End Land */
 /* Start Footer Section */
 /* End Footer Section */
 /* Start Converter */
 .converter {
+  background-color: #675aff;
   width: 450px;
   margin: auto;
   position: relative;
-  background-color: white;
   padding: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -96,7 +195,7 @@ body {
   transition: 0.4s;
 }
 .converter .settings .symbol svg:hover {
-  color: #4838ff;
+  color: #7b2049;
 }
 .converter select {
   flex: 1;
@@ -136,7 +235,7 @@ body {
   transition: 0.4s;
 }
 .converter button:hover {
-  background-color: #4838ff;
+  background-color: #7b2049;
 }
 .converter .result {
   border: 1px solid #675aff;

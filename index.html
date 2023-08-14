@@ -17,7 +17,76 @@
 </head>
 
 <body>
-	<div class="converter">
+	<section class="hero">
+		<div class="overlay"></div>
+		<div class="hero-content">
+			<header id="header">
+				<nav class="navbar navbar-expand-lg">
+					<div class="container">
+						<a class="navbar-brand" href="#header"><i class="fa-solid fa-coins"></i></a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#phone_navbar"
+							aria-controls="phone_navbar" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fa-solid fa-bars"></i>
+						</button>
+						<div class="collapse navbar-collapse" id="phone_navbar">
+							<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link active p-lg-3" aria-current="page" href="#header">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link p-lg-3" href="#instructions">Instructions</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link p-lg-3" href="#converter">Converter</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link p-lg-3" href="#features">Features</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link p-lg-3" href="#about">About Us</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link p-lg-3" href="#contact">Contact Us</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<div class="land">
+				<div class="container h-100 text-center text-lg-start">
+					<div class="row align-content-end h-100 pb-5 gap-5">
+						<div class="col-lg-7">
+							<div class="content">
+								<p class="fs-3 lh-sm">Currency Converter Pro</p>
+								<h1 class="pb-3 text-white fw-bold">Welcome to Currency Converter Pro</h1>
+								<p class="text-white fs-5 lh-lg">Are you tired of struggling with complex currency calculations? Look
+									no
+									further! Currency Converter
+									Pro
+									is
+									here to
+									simplify your currency conversion needs like never before.</p>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="img-holder">
+								<img src="images/coin.jpg" alt="Coin">
+								<p class="fs-5 ps-2 pt-2 pb-3">Global Currency Support</p>
+								<div class="outline d-flex justify-content-around fs-5">
+									<div><span>1</span><span> </span><span>USD</span></div>
+									<div>=</div>
+									<div><span>9.8</span><span> </span><span>MAD</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="instructions" id="instructions"></section>
+	<section class="converter" id="converter">
 		<h3>Currency Converter</h3>
 		<form action="">
 			<label for="ammount">Enter Ammount</label>
@@ -53,7 +122,10 @@
 		<div class="result fs-3">
 			3332
 		</div>
-	</div>
+	</section>
+	<section class="features" id="features"></section>
+	<section class="about" id="about"></section>
+	<section class="contact" id="contact"></section>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/all.min.js"></script>
 	<script src="js/countries.js" type="module"></script>
