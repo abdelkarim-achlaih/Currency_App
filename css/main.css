@@ -48,6 +48,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   position: relative;
   background-image: url("../images/hero.jpg");
   background-size: cover;
+  border-bottom: 5px solid #f73a99;
 }
 
 .overlay {
@@ -116,6 +117,56 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   }
 }
 /* End Land */
+/* Start Instructions */
+.instructions {
+  background-color: #110b37;
+}
+.instructions .container .icon svg {
+  font-size: 200px;
+  color: #f73a99;
+}
+.instructions .container .info p:first-child {
+  color: #f73a99;
+}
+.instructions .container .instruction {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.instructions .container .instruction .number {
+  position: relative;
+  background-color: #f73a99;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.instructions .container .instruction .number span {
+  font-size: 40px;
+}
+.instructions .container .instruction .number svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  opacity: 0.2;
+}
+.instructions .container .instruction h3 {
+  color: black;
+  font-weight: bold;
+}
+.instructions .container .instruction p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* End Instructions */
 /* Start Footer Section */
 /* End Footer Section */
 /* Start Converter */

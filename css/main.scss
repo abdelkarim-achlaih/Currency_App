@@ -5,6 +5,7 @@ $second: #7b2049;
 $three: #f73a99;
 $grad1: #361b82;
 $grad2: #141572;
+$dark: #110b37;
 $duration: 0.4s;
 // $three: #e357ef;
 // $main-dark: #101928;
@@ -71,6 +72,7 @@ header {
 	position: relative;
 	background-image: url('../images/hero.jpg');
 	background-size: cover;
+	border-bottom: 5px solid $three;
 }
 
 .overlay {
@@ -153,6 +155,70 @@ header {
 }
 
 /* End Land */
+/* Start Instructions */
+.instructions {
+	background-color: $dark;
+
+	.container {
+		.icon {
+			svg {
+				font-size: 200px;
+				color: $three;
+			}
+		}
+
+		.info {
+			p:first-child {
+				color: $three;
+			}
+		}
+
+		.instruction {
+			background-color: white;
+			border-radius: 10px;
+			padding: 15px;
+			margin-bottom: 20px;
+
+			.number {
+				position: relative;
+				background-color: $three;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				span {
+					font-size: 40px;
+				}
+
+				svg {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					font-size: 50px;
+					color: white;
+					opacity: .2;
+				}
+			}
+
+			h3 {
+				color: black;
+				font-weight: bold;
+			}
+
+			p {
+				font-size: 15px;
+				line-height: 1.8;
+			}
+		}
+	}
+}
+
+/* End Instructions */
 /* Start Footer Section */
 
 /* End Footer Section */
