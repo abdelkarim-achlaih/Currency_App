@@ -45,9 +45,6 @@
 								<li class="nav-item">
 									<a class="nav-link p-lg-3" href="#about">About Us</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link p-lg-3" href="#contact">Contact Us</a>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -58,7 +55,7 @@
 					<div class="row align-content-end h-100 pb-5 gap-5">
 						<div class="col-lg-7">
 							<div class="content">
-								<p class="fs-3 lh-sm">Currency Converter Pro</p>
+								<p class="fs-5 lh-sm">Currency Converter Pro</p>
 								<h1 class="pb-3 text-white fw-bold">Welcome to Currency Converter Pro</h1>
 								<p class="text-white fs-5 lh-lg">Are you tired of struggling with complex currency calculations? Look
 									no
@@ -72,7 +69,7 @@
 						<div class="col-lg-4">
 							<div class="img-holder">
 								<img src="images/coin.jpg" alt="Coin">
-								<p class="fs-5 ps-2 pt-2 pb-3">Global Currency Support</p>
+								<p class="ps-2 pt-2 pb-3 text-center">Global Currency Support</p>
 								<div class="outline d-flex justify-content-around fs-5">
 									<div><span>1</span><span> </span><span>USD</span></div>
 									<div>=</div>
@@ -176,47 +173,118 @@
 		</div>
 	</section>
 	<section class="converter-holder" id="converter">
-		<div class="converter">
-			<h3>Meet Our Currency Converter</h3>
-			<form action="">
-				<label for="ammount">Enter Ammount</label>
-				<input type="text" placeholder="Ammount" id="ammount">
-				<div class="settings">
-					<div class="from">
-						<label for="from">From</label>
-						<div class="drop text-center">
-							<img src="">
-							<select name="" id="from">
-							</select>
-						</div>
-					</div>
-					<div class="symbol text-center">
-						<i class="fa-solid fa-repeat"></i>
-					</div>
-					<div class="to">
-						<label for="to">To</label>
-						<div class="drop text-center">
-							<img src="">
-							<select name="" id="to">
-							</select>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="converter">
+						<form action="">
+							<label for="ammount">Enter Ammount</label>
+							<input type="text" placeholder="Ammount" id="ammount">
+							<div class="settings">
+								<div class="from">
+									<label for="from">From</label>
+									<div class="drop text-center">
+										<img src="">
+										<select name="" id="from">
+										</select>
+									</div>
+								</div>
+								<div class="symbol text-center">
+									<i class="fa-solid fa-repeat"></i>
+								</div>
+								<div class="to">
+									<label for="to">To</label>
+									<div class="drop text-center">
+										<img src="">
+										<select name="" id="to">
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="rate" data-tmp="false">
+								<div class="from"><span></span><span> </span><span></span></div>
+								<div class="equal">=</div>
+								<div class="to"><span></span><span> </span><span></span></div>
+							</div>
+						</form>
+						<button class="exchange">Get Exchange Rate</button>
+						<div class="result fs-3">
+							3332
 						</div>
 					</div>
 				</div>
-				<div class="rate" data-tmp="false">
-					<div class="from"><span></span><span> </span><span></span></div>
-					<div class="equal">=</div>
-					<div class="to"><span></span><span> </span><span></span></div>
+				<div class="col-lg-6">
+					<h1 class="fs-1 fw-bold lh-base text-center text-lg-end text-white">Meet Our Currency Converter</h1>
 				</div>
-			</form>
-			<button class="exchange">Get Exchange Rate</button>
-			<div class="result fs-3">
-				3332
 			</div>
 		</div>
 	</section>
-	<section class="features" id="features"></section>
-	<section class="about" id="about"></section>
-	<section class="contact" id="contact"></section>
+	<section class="features" id="features">
+		<div class="overlay"></div>
+		<div class="container">
+			<h3 class="text-center text-white fs-1 fw-bold mb-5">Features</h3>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/1.png" alt="Feature">
+						<h4>Real-time Exchange Rates</h4>
+						<p>Our app uses the latest exchange rate data to ensure accuracy in all your conversions</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/2.png" alt="Feature">
+						<h4>Intuitive Interface</h4>
+						<p>With our user-friendly design, converting currencies has never been easier</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/3.png" alt="Feature">
+						<h4>Global Currency Support</h4>
+						<p>Access a wide range of currencies from around the world</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/4.png" alt="Feature">
+						<h4>Quick and Reliable</h4>
+						<p>Get instant results without any delays</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/5.png" alt="Feature">
+						<h4>Ad-Free Experience</h4>
+						<p>Enjoy the convenience of currency conversion without any distracting ads</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="feature">
+						<img src="images/6.png" alt="Feature">
+						<h4>Customizable Conversion Presets</h4>
+						<p>Tailor Your Conversions to Your Needs</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="about" id="about">
+		<div class="container text-center lh-lg fs-5 text-white">
+			<h3 class="text-center fs-1 fw-bold mb-5">About Us</h3>
+			<p>
+				Currency Converter Pro is committed to providing you with a seamless and efficient currency conversion
+				experience. Our
+				team is dedicated to offering reliable exchange rate information and a hassle-free app that meets all your
+				currency
+				conversion needs.
+			</p>
+			<p>
+				Have questions, feedback, or suggestions? We'd love to hear from you! Reach out to our support team at
+				<a href="mailto:abdelkarima46@gmail.com">abdelkarima46@gmail.com</a>
+			</p>
+		</div>
+	</section>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/all.min.js"></script>
 	<script src="js/countries.js" type="module"></script>

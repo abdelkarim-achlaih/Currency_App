@@ -110,14 +110,15 @@ header {
 		}
 
 		h1 {
-			font-size: 4rem;
+			font-size: 3rem;
 		}
 	}
 
 	.img-holder {
-		width: 60%;
+		width: 70%;
+		margin-left: auto;
 		border-radius: 10px;
-		padding: 20px;
+		padding: 15px;
 		background-color: white;
 		overflow: hidden;
 
@@ -127,6 +128,7 @@ header {
 
 		p {
 			border-bottom: 1px solid #777;
+			font-size: 1rem;
 		}
 
 		.outline {
@@ -208,10 +210,11 @@ header {
 			h3 {
 				color: black;
 				font-weight: bold;
+				font-size: 25px;
 			}
 
 			p {
-				font-size: 15px;
+				font-size: 14px;
 				line-height: 1.8;
 			}
 		}
@@ -224,7 +227,7 @@ header {
 /* End Footer Section */
 /* Start Converter */
 .converter-holder {
-	background-image: linear-gradient(135deg, $three 50%, $second 100%);
+	background-image: linear-gradient(135deg, $grad1 50%, $second 100%);
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
@@ -422,6 +425,7 @@ header {
 
 /* End Converter */
 
+/* Start Loader */
 .lds-ring {
 	display: inline-block;
 	position: relative;
@@ -462,3 +466,71 @@ header {
 		transform: rotate(360deg);
 	}
 }
+
+/* End Loader */
+/* Start Features */
+.features {
+	background-image: url('../images/feat-section.jpg');
+	background-size: cover;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	position: relative;
+
+	.overlay {
+		height: 100%;
+
+		&::before {
+			background-image: linear-gradient(135deg, #f73a99de 50%, #141572e3 100%);
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 3;
+	}
+
+	.feature {
+		text-align: center;
+		padding-left: 30px;
+		padding-right: 30px;
+		margin-bottom: 40px;
+
+		img {
+			width: 64px;
+			margin-bottom: 40px;
+		}
+
+		h4 {
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-bottom: 20px;
+			color: white;
+		}
+
+		p {
+			color: white;
+			line-height: 1.8;
+			font-size: 13px;
+		}
+	}
+}
+
+/* End Features */
+/* Start About */
+.about {
+	background-color: $grad2;
+	padding-top: 70px;
+	padding-bottom: 70px;
+
+	a {
+		text-decoration: none;
+		color: $three;
+		transition: $duration;
+
+		&:hover {
+			color: $second;
+		}
+	}
+}
+
+/* End About */
