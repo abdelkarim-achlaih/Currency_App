@@ -223,15 +223,19 @@ header {
 
 /* End Footer Section */
 /* Start Converter */
+.converter-holder {
+	background-image: linear-gradient(135deg, $three 50%, $second 100%);
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
 
 .converter {
-	background-color: $main;
-	width: 450px;
+	background-color: white;
+	max-width: 450px;
 	margin: auto;
 	position: relative;
 	padding: 20px;
-	margin-top: 50px;
-	margin-bottom: 50px;
+
 	border-radius: 5px;
 
 	&>* {
@@ -261,7 +265,7 @@ header {
 	}
 
 	input:focus {
-		border-color: $main;
+		border-color: $three;
 		outline: none;
 	}
 
@@ -286,7 +290,7 @@ header {
 			transition: $duration;
 
 			&:focus-within {
-				border-color: $main;
+				border-color: $three;
 			}
 
 			select {
@@ -307,7 +311,7 @@ header {
 			svg {
 				font-size: 30px;
 				cursor: pointer;
-				color: $main;
+				color: $three;
 				transition: $duration;
 
 				&:hover {
@@ -348,7 +352,7 @@ header {
 	}
 
 	button {
-		background-color: $main;
+		background-color: $three;
 		color: white;
 		padding: 20px;
 		border: none;
@@ -365,7 +369,7 @@ header {
 	}
 
 	.result {
-		border: 1px solid $main;
+		border: 1px solid $three;
 		padding: 20px;
 		border-radius: 5px;
 		width: 100%;
@@ -431,10 +435,10 @@ header {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	border: 5px solid $main;
+	border: 5px solid $three;
 	border-radius: 50%;
 	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	border-color: $main transparent transparent transparent;
+	border-color: $three transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {

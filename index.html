@@ -175,41 +175,43 @@
 
 		</div>
 	</section>
-	<section class="converter" id="converter">
-		<h3>Currency Converter</h3>
-		<form action="">
-			<label for="ammount">Enter Ammount</label>
-			<input type="text" placeholder="Ammount" id="ammount">
-			<div class="settings">
-				<div class="from">
-					<label for="from">From</label>
-					<div class="drop text-center">
-						<img src="">
-						<select name="" id="from">
-						</select>
+	<section class="converter-holder" id="converter">
+		<div class="converter">
+			<h3>Meet Our Currency Converter</h3>
+			<form action="">
+				<label for="ammount">Enter Ammount</label>
+				<input type="text" placeholder="Ammount" id="ammount">
+				<div class="settings">
+					<div class="from">
+						<label for="from">From</label>
+						<div class="drop text-center">
+							<img src="">
+							<select name="" id="from">
+							</select>
+						</div>
+					</div>
+					<div class="symbol text-center">
+						<i class="fa-solid fa-repeat"></i>
+					</div>
+					<div class="to">
+						<label for="to">To</label>
+						<div class="drop text-center">
+							<img src="">
+							<select name="" id="to">
+							</select>
+						</div>
 					</div>
 				</div>
-				<div class="symbol text-center">
-					<i class="fa-solid fa-repeat"></i>
+				<div class="rate" data-tmp="false">
+					<div class="from"><span></span><span> </span><span></span></div>
+					<div class="equal">=</div>
+					<div class="to"><span></span><span> </span><span></span></div>
 				</div>
-				<div class="to">
-					<label for="to">To</label>
-					<div class="drop text-center">
-						<img src="">
-						<select name="" id="to">
-						</select>
-					</div>
-				</div>
+			</form>
+			<button class="exchange">Get Exchange Rate</button>
+			<div class="result fs-3">
+				3332
 			</div>
-			<div class="rate" data-tmp="false">
-				<div class="from"><span></span><span> </span><span></span></div>
-				<div class="equal">=</div>
-				<div class="to"><span></span><span> </span><span></span></div>
-			</div>
-		</form>
-		<button class="exchange">Get Exchange Rate</button>
-		<div class="result fs-3">
-			3332
 		</div>
 	</section>
 	<section class="features" id="features"></section>

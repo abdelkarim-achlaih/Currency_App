@@ -170,14 +170,18 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
 /* Start Footer Section */
 /* End Footer Section */
 /* Start Converter */
+.converter-holder {
+  background-image: linear-gradient(135deg, #f73a99 50%, #7b2049 100%);
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
 .converter {
-  background-color: #675aff;
-  width: 450px;
+  background-color: white;
+  max-width: 450px;
   margin: auto;
   position: relative;
   padding: 20px;
-  margin-top: 50px;
-  margin-bottom: 50px;
   border-radius: 5px;
 }
 .converter > * {
@@ -203,7 +207,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   transition: 0.4s;
 }
 .converter input:focus {
-  border-color: #675aff;
+  border-color: #f73a99;
   outline: none;
 }
 .converter .settings {
@@ -228,7 +232,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   transition: 0.4s;
 }
 .converter .settings .drop:focus-within {
-  border-color: #675aff;
+  border-color: #f73a99;
 }
 .converter .settings .drop select {
   cursor: pointer;
@@ -242,7 +246,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
 .converter .settings .symbol svg {
   font-size: 30px;
   cursor: pointer;
-  color: #675aff;
+  color: #f73a99;
   transition: 0.4s;
 }
 .converter .settings .symbol svg:hover {
@@ -272,7 +276,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   order: 3;
 }
 .converter button {
-  background-color: #675aff;
+  background-color: #f73a99;
   color: white;
   padding: 20px;
   border: none;
@@ -289,7 +293,7 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   background-color: #7b2049;
 }
 .converter .result {
-  border: 1px solid #675aff;
+  border: 1px solid #f73a99;
   padding: 20px;
   border-radius: 5px;
   width: 100%;
@@ -347,10 +351,10 @@ header .nav-link:hover, header .nav-link.active, header .nav-link:focus {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 5px solid #675aff;
+  border: 5px solid #f73a99;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #675aff transparent transparent transparent;
+  border-color: #f73a99 transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
