@@ -201,3 +201,35 @@ function animate(node, className, time) {
 		node.classList.remove(className);
 	}, time);
 }
+
+let instructionsSection = document.querySelector(".instructions");
+let instructions = document.querySelectorAll(".instructions .instruction");
+let featSection = document.querySelector(".features");
+let features = document.querySelectorAll(".features .feature");
+
+let showed = false;
+let showed2 = false;
+
+window.onscroll = (_) => {
+	if (window.scrollY > instructionsSection.offsetTop && !showed) {
+		let time = 0;
+		instructions.forEach((instruction) => {
+			setTimeout(() => {
+				instruction.classList.add("animate");
+			}, time);
+			time += 700;
+		});
+		showed = true;
+	}
+	if (window.scrollY > featSection.offsetTop - 500 && !showed2) {
+		featSection.classList.add("animate");
+		let time = 700;
+		features.forEach((feature) => {
+			setTimeout(() => {
+				feature.classList.add("animate");
+			}, time);
+			time += 700;
+		});
+		showed2 = true;
+	}
+};

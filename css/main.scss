@@ -160,6 +160,7 @@ header {
 /* Start Instructions */
 .instructions {
 	background-color: $dark;
+	overflow: hidden;
 
 	.container {
 		.icon {
@@ -180,6 +181,12 @@ header {
 			border-radius: 10px;
 			padding: 15px;
 			margin-bottom: 20px;
+			transform: translateX(1000px);
+			transition: .7s;
+
+			&.animate {
+				transform: translateX(0);
+			}
 
 			.number {
 				position: relative;
@@ -232,6 +239,10 @@ header {
 	padding-bottom: 70px;
 }
 
+h1 {
+	color: $three;
+}
+
 .converter {
 	background-color: white;
 	max-width: 450px;
@@ -245,11 +256,7 @@ header {
 		margin-bottom: 50px;
 	}
 
-	h3 {
-		font-weight: bold;
-		text-align: center;
-		font-size: 25px;
-	}
+
 
 	label {
 		margin-bottom: 10px;
@@ -475,6 +482,15 @@ header {
 	padding-top: 70px;
 	padding-bottom: 70px;
 	position: relative;
+	overflow: hidden;
+	left: 50%;
+	width: 0;
+	transition: .7s ease-in-out;
+
+	&.animate {
+		left: 0;
+		width: 100%;
+	}
 
 	.overlay {
 		height: 100%;
@@ -494,6 +510,12 @@ header {
 		padding-left: 30px;
 		padding-right: 30px;
 		margin-bottom: 40px;
+		opacity: 0;
+		transition: .7s;
+
+		&.animate {
+			opacity: 1;
+		}
 
 		img {
 			width: 64px;
